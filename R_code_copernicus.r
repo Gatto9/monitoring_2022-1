@@ -10,9 +10,9 @@ library(ggplot2)
 library(patchwork)
 
 # Set the working directory
-setwd("~/lab/copernicus/") # Linux 
+# setwd("~/lab/copernicus/") # Linux 
 # setwd("C:/lab//copernicus/")  # windows
-# setwd("/Users/name/lab/copernicus/") # mac
+setwd("/Users/macdisimonegatto/Desktop/lab/copernicus/") #mac
 
 snow20211214 <- raster("c_gls_SCE_202112140000_NHEMI_VIIRS_V1.0.1.nc")
 # to see how many layers are inside Copernicus data:
@@ -61,6 +61,20 @@ list_rast
 snowstack <- stack(list_rast)
 snowstack
 
+# class      : RasterStack 
+# dimensions : 5900, 36000, 212400000, 2  (nrow, ncol, ncell, nlayers)
+# resolution : 0.01, 0.01  (x, y)
+# extent     : -180, 180, 25, 84  (xmin, xmax, ymin, ymax)
+# crs        : +proj=longlat +datum=WGS84 +no_defs 
+# names      : Snow.Cover.Extent.1, Snow.Cover.Extent.2 
+
+# crs --> coordinate reference systems, longlat--> we are using longitude and latitude namely the angles and 
+## datum= WGS84
+
+
+
+
+
 ssummer <- snowstack$Snow.Cover.Extent.1
 swinter <- snowstack$Snow.Cover.Extent.2
 
@@ -88,7 +102,7 @@ ggtitle("Snow cover during freezing winter!")
 
 p1 / p2
 
-
+# we can zoom and crop the image on a certain area like italy
 # you can crop your image on a certain area
 
 # longitude from 0 to 20
